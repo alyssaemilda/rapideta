@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Page</title>
+
+    <link rel="stylesheet" href="feedback.css">
+</head>
+
+<body>
+
+<div class="header">FEEDBACK</div>
+
+<div class="container">
+
+    <div class="top-bar">
+        <div></div>
+
+        <div>
+            <button onclick="switchLanguage('en', this)"
+                class="lang-btn active">
+                English
+            </button>
+
+            <button onclick="switchLanguage('bm', this)"
+                class="lang-btn inactive">
+                Bahasa Melayu
+            </button>
+        </div>
+    </div>
+
+    <div class="title" id="title">
+        Please choose complaint type
+    </div>
+
+    <!-- TAMBAH GRID SINI -->
+    <div class="feedback-grid">
+
+        <!-- CARD 1 -->
+        <div class="feedback-card">
+
+            <div class="button" id="btn1"
+                onclick="selectOption('Fare/Top-Up Refund')">
+                Fare/Top-Up Refund
+            </div>
+
+            <div class="desc" id="desc1"></div>
+
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="feedback-card">
+
+            <div class="button" id="btn2"
+                onclick="selectOption('Penalty Charge Refund')">
+                Penalty Charge Refund
+            </div>
+
+            <div class="desc" id="desc2"></div>
+
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="feedback-card">
+
+            <div class="button" id="btn3"
+                onclick="selectOption('Feedback Form')">
+                Feedback Form
+            </div>
+
+            <div class="desc" id="desc3"></div>
+
+        </div>
+
+        <!-- CARD 4 -->
+        <div class="feedback-card">
+
+            <div class="button" id="btn4"
+                onclick="selectOption('KITS Style')">
+                KITS Style ( Wallet / Card Issue / Travel & Insurance )
+            </div>
+
+            <div class="desc" id="desc4"></div>
+
+        </div>
+
+    </div>
+    <!-- HABIS GRID -->
+
+    <div id="responseBox"></div>
+
+    <div class="input-section">
+
+        <textarea id="userResponse"
+            placeholder="Enter your response here...">
+        </textarea>
+
+        <button class="submit-btn"
+            onclick="submitResponse()">
+            Submit
+        </button>
+
+    </div>
+
+</div>
+
+<script src="feedback.js"></script>
+
+</body>
+</html>

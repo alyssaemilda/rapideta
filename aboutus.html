@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rapid ETA - About Us</title>
+
+<style>
+
+/* ===== ALL YOUR ORIGINAL CSS (UNCHANGED) ===== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background: linear-gradient(to bottom, rgb(30, 33, 54), rgb(194, 189, 189));
+    padding:30px;
+}
+
+.container{
+    width:900px;
+    background:#f2f2f2;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+.title{
+    text-align:center;
+    padding:20px;
+    font-size:40px;
+    font-family:'Times New Roman', Times, serif;
+    color:black;
+    border-bottom:3px solid #3533308c;
+    background:lightgrey;
+    opacity:0.9;
+    border-radius:12px;
+    margin-bottom:20px;
+}
+
+.title h1{ font-size:40px; }
+
+.intro{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    margin-bottom:20px;
+    text-align:center;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+.intro h2{ color:#1e2136; margin-bottom:10px; }
+.intro p{ color:#555; }
+
+.content{
+    display:flex;
+    gap:20px;
+}
+
+.left-box{
+    flex:1;
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+    text-align:center;
+}
+
+.grid div{
+    background:#f7f7f7;
+    padding:20px;
+    border-radius:15px;
+    transition:0.3s;
+    cursor:pointer;
+}
+
+.grid div:hover{
+    transform:translateY(-5px);
+    background:#ebebeb;
+}
+
+.icon{
+    font-size:60px;
+    margin-bottom:10px;
+}
+
+.grid p{ color:#1e2136; font-weight:bold; }
+
+a{ text-decoration:none; color:black; }
+
+.right-box{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.users{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    display:flex;
+    justify-content:space-around;
+    text-align:center;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+.users span{
+    display:block;
+    font-size:50px;
+    margin-bottom:10px;
+}
+
+.users div{
+    color:#1e2136;
+    font-weight:bold;
+}
+
+.contact{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+.contact h2{
+    text-align:center;
+    margin-bottom:15px;
+    color:#1e2136;
+}
+
+.contact p, .contact a{
+    margin:12px 0;
+    display:block;
+    color:#555;
+    font-size:16px;
+}
+
+.train-icon{ cursor:pointer; }
+
+#dropdownMenu{ margin-top:10px; }
+
+#trainLine{
+    width:100%;
+    padding:10px;
+    border-radius:8px;
+    border:1px solid #ccc;
+    font-size:14px;
+    background:white;
+}
+
+@media(max-width:768px){
+    .content{ flex-direction:column; }
+    .container{ width:100%; }
+    .title h1{ font-size:30px; }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="title">
+        <h1>ABOUT US</h1>
+    </div>
+
+    <div class="intro">
+        <h2>KNOW YOUR TIMING WITH US!</h2>
+        <p>We help you find the exact time to hop on the train.</p>
+    </div>
+
+    <div class="content">
+
+        <div class="left-box">
+
+            <div class="grid">
+
+                <div>
+                    <a href="timetable.html">
+                        <div class="icon">🕒</div>
+                        <p>ETA</p>
+                    </a>
+                </div>
+
+                <div>
+                    <a href="https://www.accuweather.com/en/my/kuala-lumpur/233776/weather-forecast/233776" target="_blank">
+                        <div class="icon">🌦</div>
+                        <p>Weather Info</p>
+                    </a>
+                </div>
+
+                <div>
+                    <a href="routes&stations.html" target="_blank">
+                        <div class="icon">📍</div>
+                        <p>Route Tracker</p>
+                    </a>
+                </div>
+
+                <div>
+
+                    <div class="icon train-icon" onclick="showDropdown()">🚉</div>
+                    <p>Train Station</p>
+
+                    <div id="dropdownMenu" style="display:none;">
+                        <select id="trainLine" onchange="goToLine()">
+                            <option value="">-- Choose Line --</option>
+                        </select>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="right-box">
+
+            <div class="users">
+                <div><span>🎓</span>Students</div>
+                <div><span>🧳</span>Tourists</div>
+                <div><span>👤</span>Daily Users</div>
+            </div>
+
+            <div class="contact">
+                <h2>CONTACT US</h2>
+                <a href="mailto:rapideta@gmail.com">📧 rapideta@gmail.com</a>
+                <p>📞 +60112223344</p>
+                <p>⏰ 8 AM - 10 PM</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+
+function showDropdown() {
+    let menu = document.getElementById("dropdownMenu");
+
+    if(menu.style.display === "none") {
+        menu.style.display = "block";
+    } else {
+        menu.style.display = "none";
+    }
+}
+
+function goToLine() {
+    let selectedLine = document.getElementById("trainLine").value;
+
+    if(selectedLine !== "") {
+        window.open(selectedLine, "_blank");
+    }
+}
+
+window.addEventListener("DOMContentLoaded", function () {
+
+    fetch("aboutus.json")
+        .then(res => res.json())
+        .then(data => {
+
+            let select = document.getElementById("trainLine");
+
+            data.trainLines.forEach(line => {
+                let option = document.createElement("option");
+                option.value = line.url;
+                option.textContent = line.name;
+                select.appendChild(option);
+            });
+
+        })
+        .catch(err => {
+            console.log("Failed to load train lines:", err);
+        });
+
+});
+
+</script>
+
+</body>
+</html>

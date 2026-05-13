@@ -1,0 +1,10 @@
+{
+  "lrt": [
+    { "name": "Kelana Jaya Line", "image": "kelanajayaline.jpg" },
+    { "name": "Ampang Line", "image": "ampangline.jpg" }
+  ],
+  "mrt": [
+    { "name": "Kajang Line", "image": "kajang.jpg" },
+    { "name": "Putrajaya Line", "image": "putrajaya.jpg" }
+  ]
+}

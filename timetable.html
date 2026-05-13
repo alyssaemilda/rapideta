@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Rapid ETA - Train Schedule (AJAX + JSON)</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background: linear-gradient(to bottom, rgb(30,33,54), rgb(194,189,189));
+    padding:30px;
+}
+
+.container{
+    width:1000px;
+    background:#f2f2f2;
+    border-radius:20px;
+    padding:30px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.3);
+}
+
+.title{
+    text-align:center;
+    padding:20px;
+    background:lightgrey;
+    border-radius:15px;
+    margin-bottom:25px;
+    border-bottom:3px solid #3533308c;
+}
+
+.title h1{
+    font-size:42px;
+    color:#1e2136;
+    font-family:'Times New Roman', Times, serif;
+}
+
+.schedule-wrapper{
+    display:flex;
+    gap:25px;
+}
+
+.train-card{
+    flex:1;
+    background:white;
+    border-radius:18px;
+    padding:20px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.train-card:hover{
+    transform:translateY(-5px);
+}
+
+.train-image{
+    font-size:100px;
+    text-align:center;
+    margin-bottom:15px;
+}
+
+.train-card h2{
+    text-align:center;
+    margin-bottom:20px;
+    color:#1e2136;
+}
+
+select{
+    width:100%;
+    padding:12px;
+    border-radius:8px;
+    border:1px solid #ccc;
+    margin-bottom:20px;
+    font-size:15px;
+}
+
+.info-box{
+    background:#e8f0ff;
+    padding:15px;
+    border-radius:10px;
+    text-align:center;
+    line-height:1.8;
+}
+
+.eta{
+    font-size:28px;
+    font-weight:bold;
+    color:#b13434;
+}
+
+.refresh-btn{
+    margin-top:15px;
+    width:100%;
+    padding:12px;
+    background:#1e2136;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.refresh-btn:hover{
+    opacity:0.85;
+}
+
+@media(max-width:900px){
+    .schedule-wrapper{
+        flex-direction:column;
+    }
+    .container{
+        width:100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="title">
+        <h1>TRAIN SCHEDULE</h1>
+    </div>
+
+    <div class="schedule-wrapper">
+
+        <!-- MRT -->
+        <div class="train-card">
+
+            <div class="train-image">🚆</div>
+            <h2>MRT Schedule</h2>
+
+            <select id="mrtStation">
+                <option value="">Select MRT Station</option>
+                <option>Bukit Bintang</option>
+                <option>Kajang</option>
+                <option>Putrajaya</option>
+                <option>TRX</option>
+                <option>Sungai Buloh</option>
+            </select>
+
+            <div class="info-box">
+                <h3>Next Train ETA</h3>
+                <div class="eta" id="mrtETA">--</div>
+                <p>Platform 1</p>
+                <p>Status: On Time</p>
+            </div>
+
+            <button class="refresh-btn" onclick="refreshMRT()">
+                Refresh ETA
+            </button>
+
+        </div>
+
+        <!-- LRT -->
+        <div class="train-card">
+
+            <div class="train-image">🚈</div>
+            <h2>LRT Schedule</h2>
+
+            <select id="lrtStation">
+                <option value="">Select LRT Station</option>
+                <option>Kelana Jaya</option>
+                <option>Masjid Jamek</option>
+                <option>Putra Heights</option>
+                <option>Ampang Park</option>
+                <option>KLCC</option>
+            </select>
+
+            <div class="info-box">
+                <h3>Next Train ETA</h3>
+                <div class="eta" id="lrtETA">--</div>
+                <p>Platform 2</p>
+                <p>Status: On Time</p>
+            </div>
+
+            <button class="refresh-btn" onclick="refreshLRT()">
+                Refresh ETA
+            </button>
+
+        </div>
+
+    </div>
+</div>
+
+<script>
+
+let data = {};
+
+// AJAX (FETCH JSON)
+fetch("timetable.json")
+    .then(res => res.json())
+    .then(json => {
+        data = json;
+        console.log("JSON loaded:", data);
+    })
+    .catch(err => console.log(err));
+
+function getNextTrain(schedule, station) {
+    if (!schedule || !schedule[station]) return null;
+
+    let now = new Date();
+    let currentMin = now.getMinutes();
+
+    let times = schedule[station];
+
+    for (let t of times) {
+        if (t > currentMin) {
+            return t - currentMin;
+        }
+    }
+
+    return (60 - currentMin) + times[0];
+}
+
+/* MRT */
+function refreshMRT() {
+    let station = document.getElementById("mrtStation").value;
+
+    if (!station) {
+        alert("Please select MRT station");
+        return;
+    }
+
+    let eta = getNextTrain(data.mrtSchedule, station);
+
+    document.getElementById("mrtETA").innerHTML = eta + " mins";
+}
+
+/* LRT */
+function refreshLRT() {
+    let station = document.getElementById("lrtStation").value;
+
+    if (!station) {
+        alert("Please select LRT station");
+        return;
+    }
+
+    let eta = getNextTrain(data.lrtSchedule, station);
+
+    document.getElementById("lrtETA").innerHTML = eta + " mins";
+}
+
+</script>
+
+</body>
+</html>

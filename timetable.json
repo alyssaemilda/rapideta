@@ -1,0 +1,17 @@
+{
+  "mrtSchedule": {
+    "Bukit Bintang": [0, 10, 20, 30, 40, 50],
+    "Kajang": [2, 12, 22, 32, 42, 52],
+    "Putrajaya": [4, 14, 24, 34, 44, 54],
+    "TRX": [3, 13, 23, 33, 43, 53],
+    "Sungai Buloh": [1, 11, 21, 31, 41, 51]
+  },
+
+  "lrtSchedule": {
+    "Kelana Jaya": [0, 12, 24, 36, 48],
+    "Masjid Jamek": [3, 15, 27, 39, 51],
+    "Putra Heights": [1, 13, 25, 37, 49],   
+    "Ampang Park": [2, 14, 26, 38, 50],
+    "KLCC": [4, 16, 28, 40, 52]
+  }
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Malaysia Rail Transit Map</title>
+
+<link rel="stylesheet" href="routes&stations.css">
+</head>
+
+<body>
+
+<div class="container">
+  <div class = main-header> ROUTES AND STATIONS</div>
+  <div class="transport-buttons">
+    <button class="active" onclick="showTransport('lrt', this)">LRT</button>
+    <button onclick="showTransport('mrt', this)">MRT</button>
+  </div>
+
+  <div class="line-buttons" id="lineButtons"></div>
+
+  <h1 id="title">Route Map</h1>
+
+  <div class="map-container">
+
+    <div class="map-box">
+      <img id="mapImage" src="kelanajayaline.jpg" alt="Transit Map">
+    </div>
+
+    <div class="info-box">
+
+      <div class="legend-title">Directory</div>
+
+      <div class="legend-item">
+        <img src="ampanglogo.png" class="icon"> Ampang Line
+      </div>
+
+      <div class="legend-item">
+        <img src="sripetalinglogo.png" class="icon"> Sri Petaling Line
+      </div>
+
+      <div class="legend-item">
+        <img src="klmonorail.png" class="icon"> KL Monorail Line
+      </div>
+
+      <div class="legend-item">
+        <img src="kajanglogo.png" class="icon"> Kajang Line
+      </div>
+
+      <div class="legend-item">
+        <img src="ktmserembanlogo.png" class="icon"> KTM Seremban Line
+      </div>
+
+      <div class="legend-item">
+        <img src="ktmportklang.png" class="icon"> KTM Port Klang Line
+      </div>
+
+      <div class="legend-item">
+        <img src="kelanajayalogo.png" class="icon"> Kelana Jaya Line
+      </div>
+
+      <div class="legend-item">
+        <img src="putrajayalogo.png" class="icon"> Putrajaya Line
+      </div>
+
+      <div class="legend-item">
+        <img src="sunwaylogo.jpg" class="icon"> Sunway Line
+      </div>
+
+      <div class="legend-item">
+        <img src="erlklialogo.jpg" class="icon"> ERL KLIA Express Line
+      </div>
+
+      <div class="legend-item">
+        <img src="exchangelogo.png" class="icon"> Interchange station
+      </div>
+
+      <div class="legend-item">
+        <img src="connectinglogo.png" class="icon"> Connecting Station
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<script src="routes&stations.js"></script>
+</body>
+</html>

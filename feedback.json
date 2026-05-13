@@ -1,0 +1,25 @@
+{
+    "en": {
+        "title": "Please choose complaint type",
+        "btn1": "Fare/Top-Up Refund",
+        "desc1": "A refund process for unsuccessful fare or top-up charges. Customer can request a refund in the event of a system disruption.",
+        "btn2": "Penalty Charge Refund",
+        "desc2": "A refund process for penalty charges applied during incidents or commuter train delays. If customer feel the penalty was unfairly applied, they can request a review and refund of the charge.",
+        "btn3": "Feedback Form",
+        "desc3": "A form provided for customers to submit complaints or inquiries. This form helps the customer service team manage various customer needs.",
+        "btn4": "KITS Style ( Wallet / Card Issue / Travel & Insurance )",
+        "desc4": "A process for reporting issues related to customer wallets or cards, such as balance discrepancies, card malfunctions, or lost/stolen cards. Customer can submit a request for investigation and resolution." 
+    },
+
+    "bm": {
+        "title": "Sila pilih jenis aduan",
+        "btn1": "Bayaran Balik Tambang/Tambah Nilai",
+        "desc1": "Proses bayaran balik untuk caj tambang atau tambah nilai yang tidak berjaya. Pelanggan boleh memohon pemulangan sekiranya berlaku gangguan sistem.",
+        "btn2": "Pemulangan Caj Penalti",
+        "desc2": "Proses pemulangan bagi caj penalti yang dikenakan semasa insiden atau kelewatan tren komuter. Jika pelanggan merasakan caj penalti dikenakan secara tidak adil, mereka boleh memohon semakan dan pemulangan caj tersebut.",
+        "btn3": "Borang Maklum Balas",
+        "desc3": "Borang yang disediakan untuk pelanggan menghantar aduan atau pertanyaan. Borang ini membantu pasukan khidmat pelanggan mengurus pelbagai keperluan pelanggan.",
+        "btn4": "Gaya KITS ( Isu Dompet / Kad / Pelancongan & Insurans )",
+        "desc4": "Proses untuk melaporkan isu berkaitan dompet atau kad pelanggan, seperti ketidaksepadanan baki, kad rosak, atau kad hilang/dicuri. Pelanggan boleh menghantar permohonan untuk siasatan dan penyelesaian."
+    }
+}
