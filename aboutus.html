@@ -36,16 +36,9 @@ body{
     padding:20px;
     font-size:40px;
     font-family:'Times New Roman', Times, serif;
-    color:black;
-    border-bottom:3px solid #3533308c;
     background:lightgrey;
-    opacity:0.9;
     border-radius:12px;
     margin-bottom:20px;
-}
-
-.title h1{
-    font-size:40px;
 }
 
 .intro{
@@ -54,16 +47,6 @@ body{
     border-radius:15px;
     margin-bottom:20px;
     text-align:center;
-    box-shadow:0 2px 8px rgba(0,0,0,0.1);
-}
-
-.intro h2{
-    color:#1e2136;
-    margin-bottom:10px;
-}
-
-.intro p{
-    color:#555;
 }
 
 .content{
@@ -71,55 +54,44 @@ body{
     gap:20px;
 }
 
-.left-box{
+.left-box, .right-box{
     flex:1;
-    background:white;
-    padding:20px;
-    border-radius:15px;
-    box-shadow:0 2px 8px rgba(0,0,0,0.1);
 }
 
 .grid{
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:20px;
-    text-align:center;
 }
 
 .grid div{
-    background:#f7f7f7;
+    background:white;
     padding:20px;
     border-radius:15px;
-    transition:0.3s;
+    text-align:center;
     cursor:pointer;
+    transition:0.3s;
 }
 
 .grid div:hover{
     transform:translateY(-5px);
-    background:#ebebeb;
 }
+
 
 .icon{
-    font-size:60px;
-    margin-bottom:10px;
+    font-size:50px;
 }
 
-.grid p{
-    color:#1e2136;
-    font-weight:bold;
+
+.weather-box{
+    display:none;
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    margin-bottom:20px;
+    text-align:center;
 }
 
-a{
-    text-decoration:none;
-    color:black;
-}
-
-.right-box{
-    flex:1;
-    display:flex;
-    flex-direction:column;
-    gap:20px;
-}
 
 .users{
     background:white;
@@ -128,95 +100,30 @@ a{
     display:flex;
     justify-content:space-around;
     text-align:center;
-    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom:20px;
 }
 
 .users span{
+    font-size:40px;
     display:block;
-    font-size:50px;
-    margin-bottom:10px;
-}
-
-.users div{
-    color:#1e2136;
-    font-weight:bold;
 }
 
 .contact{
     background:white;
     padding:20px;
     border-radius:15px;
-    box-shadow:0 2px 8px rgba(0,0,0,0.1);
 }
 
-.contact h2{
-    text-align:center;
-    margin-bottom:15px;
-    color:#1e2136;
-}
-
-.contact p,
-.contact a{
-    margin:12px 0;
-    display:block;
-    color:#555;
-    font-size:16px;
-}
-
-.weather-box{
-    background:white;
-    padding:20px;
-    border-radius:15px;
-    box-shadow:0 2px 8px rgba(0,0,0,0.1);
-    text-align:center;
-}
-
-.weather-box h2{
-    margin-bottom:10px;
-    color:#1e2136;
-}
-
-.weather-box p{
-    margin:8px 0;
-    color:#444;
-}
-
-.train-icon{
-    cursor:pointer;
-}
 
 #dropdownMenu{
-    margin-top:10px;
     display:none;
+    margin-top:10px;
 }
 
-#trainLine{
+select{
     width:100%;
     padding:10px;
     border-radius:8px;
-    border:1px solid #ccc;
-    font-size:14px;
-    background:white;
-}
-
-@media(max-width:768px){
-
-    .content{
-        flex-direction:column;
-    }
-
-    .container{
-        width:100%;
-    }
-
-    .title h1{
-        font-size:30px;
-    }
-
-    .users{
-        flex-direction:column;
-        gap:20px;
-    }
 }
 
 </style>
@@ -232,10 +139,7 @@ a{
 
     <div class="intro">
         <h2>KNOW YOUR TIMING WITH US!</h2>
-        <p>
-            We help passengers check train ETA,
-            weather updates and station information.
-        </p>
+        <p>Train ETA, Weather & Route Info in one place</p>
     </div>
 
     <div class="content">
@@ -245,43 +149,21 @@ a{
             <div class="grid">
 
                 <div>
-                    <a href="timetable.html">
-                        <div class="icon">🕒</div>
-                        <p>ETA</p>
-                    </a>
+                    <div class="icon">🕒</div>
+                    <p>ETA</p>
                 </div>
 
                 <div>
-                    <a href="https://www.accuweather.com/en/my/kuala-lumpur/233776/weather-forecast/233776" target="_blank">
-                         <div class="icon">🌤️</div>
-                        <p>Weather Info</p>
-                
-                    </a>
+                    <div class="icon">📍</div>
+                    <p>Route Tracker</p>
                 </div>
-                </div>
+                    <div>
+                        <div class="icon" onclick="toggleTrain()">🚉</div>
+                        <p>Train Station</p>
 
-                <div>
-                    <a href="routes&stations.html">
-                        <div class="icon">📍</div>
-                        <p>Route Tracker</p>
-                    </a>
-                </div>
-
-                <div>
-
-                    <div class="icon train-icon" onclick="showDropdown()">
-                        🚉
-                    </div>
-
-                    <p>Train Station</p>
-
-                    <div id="dropdownMenu">
-
+                        <div id="dropdownMenu">
                         <select id="trainLine" onchange="goToLine()">
-
-                            <option value="">
-                                -- Choose Line --
-                            </option>
+                            <option value="">-- Choose Line --</option>
 
                             <option value="https://myrapid.com.my/bus-train/rapid-kl/mrt-kajang-line/">
                                 MRT Kajang Line
@@ -300,9 +182,13 @@ a{
                             </option>
 
                         </select>
-
                     </div>
+                </div>
 
+             
+                <div onclick="showWeather()">
+                    <div class="icon">🌤️</div>
+                    <p>Weather</p>
                 </div>
 
             </div>
@@ -330,27 +216,17 @@ a{
 
             </div>
 
-            <div class="weather-box">
-
+            <div class="weather-box" id="weatherBox">
                 <h2>LIVE WEATHER</h2>
-
-                <p id="temperature">Loading temperature...</p>
-                <p id="windspeed"></p>
-
+                <p id="temp">Click weather to load...</p>
+                <p id="wind"></p>
             </div>
 
             <div class="contact">
-
                 <h2>CONTACT US</h2>
-
-                <a href="mailto:rapideta@gmail.com">
-                    📧 rapideta@gmail.com
-                </a>
-
+                <p>📧 rapideta@gmail.com</p>
                 <p>📞 +60112223344</p>
-
                 <p>⏰ 8 AM - 10 PM</p>
-
             </div>
 
         </div>
@@ -361,41 +237,46 @@ a{
 
 <script>
 
-function showDropdown(){
 
+function toggleTrain(){
     let menu = document.getElementById("dropdownMenu");
-
-    if(menu.style.display === "block"){
-        menu.style.display = "none";
-    }
-
-    else{
-        menu.style.display = "block";
-    }
+    menu.style.display = menu.style.display === "block" ? "none" : "block";
 }
+
 
 function goToLine(){
-
-    let selectedLine = document.getElementById("trainLine").value;
-
-    if(selectedLine !== ""){
-        window.open(selectedLine, "_blank");
+    let link = document.getElementById("trainLine").value;
+    if(link){
+        window.open(link, "_blank");
     }
 }
 
+function showWeather(){
 
-fetch("https://api.open-meteo.com/v1/forecast?latitude=3.1390&longitude=101.6869&current_weather=true")
+    let box = document.getElementById("weatherBox");
+    box.style.display = "block";
 
-.then(response => response.json())
+    fetch("https://api.open-meteo.com/v1/forecast?latitude=3.1390&longitude=101.6869&current_weather=true")
 
-.then(data => {
+    .then(res => res.json())
+    .then(data => {
 
-    console.log(data);
+        document.getElementById("temp").innerHTML =
+            "🌡 Temperature: " + data.current_weather.temperature + "°C";
 
-});
+        document.getElementById("wind").innerHTML =
+            "💨 Wind Speed: " + data.current_weather.windspeed + " km/h";
+
+    })
+
+    .catch(err => {
+        document.getElementById("temp").innerHTML =
+            "Failed to load weather";
+    });
+
+}
 
 </script>
 
 </body>
 </html>
-
