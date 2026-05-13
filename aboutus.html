@@ -1,3 +1,6 @@
+# Rapid ETA About Us Page (With API)
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +9,6 @@
 <title>Rapid ETA - About Us</title>
 
 <style>
-
 
 *{
     margin:0;
@@ -45,7 +47,9 @@ body{
     margin-bottom:20px;
 }
 
-.title h1{ font-size:40px; }
+.title h1{
+    font-size:40px;
+}
 
 .intro{
     background:white;
@@ -56,8 +60,14 @@ body{
     box-shadow:0 2px 8px rgba(0,0,0,0.1);
 }
 
-.intro h2{ color:#1e2136; margin-bottom:10px; }
-.intro p{ color:#555; }
+.intro h2{
+    color:#1e2136;
+    margin-bottom:10px;
+}
+
+.intro p{
+    color:#555;
+}
 
 .content{
     display:flex;
@@ -97,9 +107,15 @@ body{
     margin-bottom:10px;
 }
 
-.grid p{ color:#1e2136; font-weight:bold; }
+.grid p{
+    color:#1e2136;
+    font-weight:bold;
+}
 
-a{ text-decoration:none; color:black; }
+a{
+    text-decoration:none;
+    color:black;
+}
 
 .right-box{
     flex:1;
@@ -142,16 +158,40 @@ a{ text-decoration:none; color:black; }
     color:#1e2136;
 }
 
-.contact p, .contact a{
+.contact p,
+.contact a{
     margin:12px 0;
     display:block;
     color:#555;
     font-size:16px;
 }
 
-.train-icon{ cursor:pointer; }
+.weather-box{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+    text-align:center;
+}
 
-#dropdownMenu{ margin-top:10px; }
+.weather-box h2{
+    margin-bottom:10px;
+    color:#1e2136;
+}
+
+.weather-box p{
+    margin:8px 0;
+    color:#444;
+}
+
+.train-icon{
+    cursor:pointer;
+}
+
+#dropdownMenu{
+    margin-top:10px;
+    display:none;
+}
 
 #trainLine{
     width:100%;
@@ -163,9 +203,23 @@ a{ text-decoration:none; color:black; }
 }
 
 @media(max-width:768px){
-    .content{ flex-direction:column; }
-    .container{ width:100%; }
-    .title h1{ font-size:30px; }
+
+    .content{
+        flex-direction:column;
+    }
+
+    .container{
+        width:100%;
+    }
+
+    .title h1{
+        font-size:30px;
+    }
+
+    .users{
+        flex-direction:column;
+        gap:20px;
+    }
 }
 
 </style>
@@ -181,7 +235,10 @@ a{ text-decoration:none; color:black; }
 
     <div class="intro">
         <h2>KNOW YOUR TIMING WITH US!</h2>
-        <p>We help you find the exact time to hop on the train.</p>
+        <p>
+            We help passengers check train ETA,
+            weather updates and station information.
+        </p>
     </div>
 
     <div class="content">
@@ -198,14 +255,12 @@ a{ text-decoration:none; color:black; }
                 </div>
 
                 <div>
-                    <a href="https://www.accuweather.com/en/my/kuala-lumpur/233776/weather-forecast/233776" target="_blank">
-                        <div class="icon">🌦</div>
-                        <p>Weather Info</p>
-                    </a>
+                    <div class="icon">🌤️</div>
+                    <p>Weather API</p>
                 </div>
 
                 <div>
-                    <a href="routes&stations.html" target="_blank">
+                    <a href="routes&stations.html">
                         <div class="icon">📍</div>
                         <p>Route Tracker</p>
                     </a>
@@ -213,13 +268,21 @@ a{ text-decoration:none; color:black; }
 
                 <div>
 
-                    <div class="icon train-icon" onclick="showDropdown()">🚉</div>
+                    <div class="icon train-icon" onclick="showDropdown()">
+                        🚉
+                    </div>
+
                     <p>Train Station</p>
 
-                    <div id="dropdownMenu" style="display:none;">
+                    <div id="dropdownMenu">
+
                         <select id="trainLine" onchange="goToLine()">
-                            <option value="">-- Choose Line --</option>
-                             <option value="https://myrapid.com.my/bus-train/rapid-kl/mrt-kajang-line/">
+
+                            <option value="">
+                                -- Choose Line --
+                            </option>
+
+                            <option value="https://myrapid.com.my/bus-train/rapid-kl/mrt-kajang-line/">
                                 MRT Kajang Line
                             </option>
 
@@ -234,7 +297,9 @@ a{ text-decoration:none; color:black; }
                             <option value="https://myrapid.com.my/bus-train/rapid-kl/lrt-ampang-sri-petaling-line/">
                                 LRT Ampang Line
                             </option>
+
                         </select>
+
                     </div>
 
                 </div>
@@ -246,16 +311,45 @@ a{ text-decoration:none; color:black; }
         <div class="right-box">
 
             <div class="users">
-                <div><span>🎓</span>Students</div>
-                <div><span>🧳</span>Tourists</div>
-                <div><span>👤</span>Daily Users</div>
+
+                <div>
+                    <span>🎓</span>
+                    Students
+                </div>
+
+                <div>
+                    <span>🧳</span>
+                    Tourists
+                </div>
+
+                <div>
+                    <span>👤</span>
+                    Daily Users
+                </div>
+
+            </div>
+
+            <div class="weather-box">
+
+                <h2>LIVE WEATHER</h2>
+
+                <p id="temperature">Loading temperature...</p>
+                <p id="windspeed"></p>
+
             </div>
 
             <div class="contact">
+
                 <h2>CONTACT US</h2>
-                <a href="mailto:rapideta@gmail.com">📧 rapideta@gmail.com</a>
+
+                <a href="mailto:rapideta@gmail.com">
+                    📧 rapideta@gmail.com
+                </a>
+
                 <p>📞 +60112223344</p>
+
                 <p>⏰ 8 AM - 10 PM</p>
+
             </div>
 
         </div>
@@ -266,44 +360,49 @@ a{ text-decoration:none; color:black; }
 
 <script>
 
+function showDropdown(){
 
-function showDropdown() {
     let menu = document.getElementById("dropdownMenu");
 
-    if(menu.style.display === "none") {
-        menu.style.display = "block";
-    } else {
+    if(menu.style.display === "block"){
         menu.style.display = "none";
+    }
+
+    else{
+        menu.style.display = "block";
     }
 }
 
-function goToLine() {
+function goToLine(){
+
     let selectedLine = document.getElementById("trainLine").value;
 
-    if(selectedLine !== "") {
+    if(selectedLine !== ""){
         window.open(selectedLine, "_blank");
     }
 }
 
-window.addEventListener("DOMContentLoaded", function () {
 
-    fetch("aboutus.json")
-        .then(res => res.json())
-        .then(data => {
+fetch("https://api.open-meteo.com/v1/forecast?latitude=3.1390&longitude=101.6869&current_weather=true")
 
-            let select = document.getElementById("trainLine");
+.then(response => response.json())
 
-            data.trainLines.forEach(line => {
-                let option = document.createElement("option");
-                option.value = line.url;
-                option.textContent = line.name;
-                select.appendChild(option);
-            });
+.then(data => {
 
-        })
-        .catch(err => {
-            console.log("Failed to load train lines:", err);
-        });
+    document.getElementById("temperature").innerHTML =
+        "🌡 Temperature: " + data.current_weather.temperature + "°C";
+
+    document.getElementById("windspeed").innerHTML =
+        "💨 Wind Speed: " + data.current_weather.windspeed + " km/h";
+
+})
+
+.catch(error => {
+
+    document.getElementById("temperature").innerHTML =
+        "Failed to load weather data";
+
+    console.log(error);
 
 });
 
@@ -311,3 +410,4 @@ window.addEventListener("DOMContentLoaded", function () {
 
 </body>
 </html>
+
