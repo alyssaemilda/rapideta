@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Rapid ETA - Train Schedule (AJAX + JSON)</title>
+<title>Rapid ETA - Train Schedule</title>
 
 <style>
 *{
@@ -135,7 +135,7 @@ select{
 
     <div class="schedule-wrapper">
 
-        <!-- MRT -->
+
         <div class="train-card">
 
             <div class="train-image">🚆</div>
@@ -163,7 +163,7 @@ select{
 
         </div>
 
-        <!-- LRT -->
+
         <div class="train-card">
 
             <div class="train-image">🚈</div>
@@ -198,7 +198,7 @@ select{
 
 let data = {};
 
-// AJAX (FETCH JSON)
+
 fetch("timetable.json")
     .then(res => res.json())
     .then(json => {
@@ -224,7 +224,7 @@ function getNextTrain(schedule, station) {
     return (60 - currentMin) + times[0];
 }
 
-/* MRT */
+
 function refreshMRT() {
     let station = document.getElementById("mrtStation").value;
 
@@ -238,7 +238,7 @@ function refreshMRT() {
     document.getElementById("mrtETA").innerHTML = eta + " mins";
 }
 
-/* LRT */
+
 function refreshLRT() {
     let station = document.getElementById("lrtStation").value;
 
