@@ -149,13 +149,17 @@ select{
             <div class="grid">
 
                 <div>
+                    <a href="timetable.html">
                     <div class="icon">🕒</div>
                     <p>ETA</p>
+                    </a>
                 </div>
 
                 <div>
+                    <a href="routesandstations.html>
                     <div class="icon">📍</div>
                     <p>Route Tracker</p>
+                        </a>
                 </div>
                     <div>
                         <div class="icon" onclick="toggleTrain()">🚉</div>
@@ -237,17 +241,19 @@ select{
 
 <script>
 
-
 function toggleTrain(){
     let menu = document.getElementById("dropdownMenu");
-    menu.style.display = menu.style.display === "block" ? "none" : "block";
+
+    menu.style.display =
+        menu.style.display === "block" ? "none" : "block";
 }
 
-
 function goToLine(){
+
     let link = document.getElementById("trainLine").value;
+
     if(link){
-        window.open(link, "_blank");
+        window.location.href = link;
     }
 }
 
