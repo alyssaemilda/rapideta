@@ -71,7 +71,10 @@ body{
     text-align:center;
     cursor:pointer;
     transition:0.3s;
-    text-decoration: none;
+}
+.grid a{
+    text-decoration:none;
+    color:inherit;
 }
 
 .grid div:hover{
@@ -148,19 +151,21 @@ select{
         <div class="left-box">
 
             <div class="grid">
-                 <a href="timetable.html">
+                
+        
                 <div>
+                    <a href="timetable.html">
                     <div class="icon">🕒</div>
                     <p>ETA</p>
+                    </a>
                 </div>
-                </a>
 
-                <a href="routes&stations.html">
                 <div>
+                    <a href="routes&stations.html">
                     <div class="icon">📍</div>
                     <p>Route Tracker</p>
+                    </a>
                 </div>
-                </a>
                 
                     <div>
                         <div class="icon" onclick="toggleTrain()">🚉</div>
