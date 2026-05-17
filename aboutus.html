@@ -156,10 +156,10 @@ select{
                 </div>
 
                 <div>
-                    <a href="routesandstations.html>
+                    <a href="routes&stations.html>
                     <div class="icon">📍</div>
                     <p>Route Tracker</p>
-                        </a>
+                    </a>
                 </div>
                     <div>
                         <div class="icon" onclick="toggleTrain()">🚉</div>
@@ -241,19 +241,17 @@ select{
 
 <script>
 
+
 function toggleTrain(){
     let menu = document.getElementById("dropdownMenu");
-
-    menu.style.display =
-        menu.style.display === "block" ? "none" : "block";
+    menu.style.display = menu.style.display === "block" ? "none" : "block";
 }
 
+
 function goToLine(){
-
     let link = document.getElementById("trainLine").value;
-
     if(link){
-        window.location.href = link;
+        window.open(link, "_blank");
     }
 }
 
